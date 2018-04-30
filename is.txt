@@ -1,0 +1,13 @@
+Vortrag + Vorführung
+
+-> Einführung in Themen
+-> Theoretischer Hintergrund
+-> ausgenutzte/ausnutzbare Schwachstellen
+-> Angriffsbeschreibung oder Toolbeschreibung
+-> Vorführung
+-> Gegenmaßnahmen und ihre Wirksamkeit
+-> denkbare Erweiterungen des Angriffs
+---
+Vortrag als PDF an Thiel bis 16.07. (Bewertet)
+06.06 Metasploit
+Sasha Koß 508877
