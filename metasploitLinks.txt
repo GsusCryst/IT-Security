@@ -1,4 +1,7 @@
 https://en.wikipedia.org/wiki/Metasploit_Project
+
+https://github.com/rapid7/metasploit-framework/wiki
+
 https://www.metasploit.com/
 https://null-byte.wonderhowto.com/how-to/metasploit-basics/
 https://docs.kali.org/general-use/starting-metasploit-framework-in-kali
