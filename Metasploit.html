@@ -8,7 +8,7 @@
             @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
             @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
             body { font-family: 'Droid Serif'; }
-            h1, h2, h3 { font-family: 'Yanone Kaffeesatz';
+            h1, h2, h3, h4 { font-family: 'Yanone Kaffeesatz';
                          font-weight: normal; }
             .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
             a {
@@ -34,7 +34,7 @@ background-image: url(pictures/Metasploit-Framework.png)
 
 # <font color="#20C20E">.center[Agenda]
 
-  1.0 Einführung ins Metasploit Framwork // kris
+  1.0 Einführung ins Metasploit Framework // kris
     + Anfänge/Geschichte
     + Was ist Metasploit(jetzt)? Rapid7
     + Bibliotheken, was beinhalten diese.
@@ -89,7 +89,37 @@ background-image: url(pictures/Metasploit-Framework.png)
 
 ---
 
-# <font color="#20C20E">.center[Einführung ins Metasploit Framwork]</font>
+## <font color="#20C20E">.center[Einführung ins Metasploit Framework]
+
+### Was ist ein Vulnerability Scanner?
+
+- dies sind automatisierte Tools um Sicherheitslücken in einem System oder einer Applikation zu identifizieren
+- diese Scanner nehmen einen Fingerabdruck des Ziel-OSs(Version, Type) und der laufenden Anwendungen
+- nun können mit dem Vulnerability Scanner bestimmte Checks durchgeführt werden, mit denen man Schwachstellen im OS entdecken kann
+- diese Checks sind aber nur so gut wie ihr Ersteller, und können mit Schwachstellen daneben liegen oder falsch darstellen
+- viele Unternehmen benutzen die Vulnerability Scanner um Out-Of-Date Systeme oder potenzielle Exploits zu entdecken
+- die Scanner spielen eine große Rolle im Penetration Testing, vorallem beim Integritätstest, da man mehrere Angriffe ausführen kann und sich keine Sorgen ums Verschleiern machen muss
+- einer dieser Vulnerability Scanner ist das **Metasploit Framework**_(MSF)_
+
+</font>
+
+---
+
+## <font color="#20C20E">.center[Einführung ins Metasploit Framework]
+
+### Was ist das Metasploit Framework(MSF)?
+
+- Metasploit ist ein Open-Source Projekt
+- das Teilprojekt Metasploit Framework(MSF) ist das bekannteste, es:
+    - bietet Informationen über Sicherheitslücken
+    - wird beim Penetration-Testing und bei der Entwicklung von IDS-Signaturen eingesetzt
+    - liefert die nötige Infrastruktur für triviale, routinemäßige und komplexe Tasks
+    - darunter Fallen Exploits, Payloads, Encoders etc.
+    - diese können mit Angriffsvektoren erweitert werden um hochentwickelte Angriffe:
+            (i) zu erstellen und
+            (ii) durchzuführen
+
+</font>
 
 ---
 
