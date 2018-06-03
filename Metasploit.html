@@ -185,6 +185,16 @@ background-image: url(pictures/Metasploit-Framework.png)
 
 ---
 
+background-image: 
+
+## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+
+### Metasploit Architecture
+
+<img src="pictures/Metasploitarchitecture.png" height="90%" width="90%">
+
+---
+
 ## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
 
 ### Metasploit Architecture - Filesystem
@@ -257,6 +267,10 @@ background-image: url(pictures/Metasploit-Framework.png)
     - Module erben von der typ-spezifischen Klasse
     - die typ-spezifischen Klassen erben von der Msf::Module Klasse
     - es gibt eine gemeinsame API zwischen den Modulen
+    - jede Klasse hat genau einen Parent
+    - jede Klasse kann mehrere Module haben
+    - Module können neue Methoden hinzufügen
+    - Module können Methoden überladen
 - Payloads sind etwas anders:
     - werden während der Laufzeit erstelltn von verschiedenen Komponenten
     - Klebt Stagers mit Stages zusammen
@@ -267,12 +281,7 @@ background-image: url(pictures/Metasploit-Framework.png)
 
 ### Metasploit Architecture - Mixins und Plugins
 
-- ein Umweg über Ruby:
-    - jede Klasse hat genau einen Parent
-    - jede Klasse kann mehrere Module haben
-    - Module können neue Methoden hinzufügen
-    - Module können Methoden überladen
-    - Metasploit Module enthalten Mixins zum hinzufügen von Features
+- Metasploit Module enthalten Mixins zum hinzufügen von Features
 
 - Metasploit Mixins:
     - fügen eine Klasse in eine Andere, ähnlich der Vererbung, aber nicht ganz
