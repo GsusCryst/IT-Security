@@ -147,8 +147,8 @@ background-image: url(pictures/Metasploit-Framework.png)
     - liefert die nötige Infrastruktur für triviale, routinemäßige und komplexe Tasks
     - darunter Fallen Exploits, Payloads, Encoders etc.
     - diese können mit Angriffsvektoren erweitert werden um hochentwickelte Angriffe:
-            (i) zu erstellen und
-            (ii) durchzuführen
+                (i) zu erstellen und
+                (ii) durchzuführen
 
 </font>
 
@@ -160,48 +160,142 @@ background-image: url(pictures/Metasploit-Framework.png)
 
 - erfunden und entwickelt von H.D. Moore
 - die 1. Edition vom Perl-basierten Metasploit wurde im Oktober 2003 mit 11 Exploits veröffentlicht
-- mit Hilfe von Spoonm konnte Moore im April 2004 Metasploit 2.0, eine komplett Überarbeitung, veröffentlichen
-- diese Version enthielt 19 Exploits und über 27 Payloads
-- kurz danach ist Matt Miller(Skape) dem Entwicklungsteam beigetreten
-- als das Projekt an Popularität gewann, wurde es von der Information Security Community unterstützte und wurde schnell zu einem notwendigen Tool für Penetration-Testing
-- 
+- mit Hilfe von Spoonm konnte Moore im April 2004 Metasploit 2.0 veröffentlichen, diese Verson enthielt bereits 19 Exploits und 27 Payloads
+- 2006 wurde Metasploit 3.0 veröffentlicht mit 177 Exploits und 104 Payloads
+- 2007 wurde das Framework komplett überarbeitet, mit Ruby als Programmiersprache
+- Rapid7, eine Sicherheitsfirma, die einheitliche Vulnerability Management Solutions zur Verfügung stellt, übernahm das Projekt 2009
+- 2010 kamen Metasploit Express und Metasploit Pro zum Repertoire
 </font>
 
 ---
 
-## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+## <font color="#20C20E">.center[Einführung ins Metasploit Framework]
 
-### Metasploit Architecture - Filesystem</font>
+### Entwicklung von Metasploit
 
----
-
-## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
-
-### Metasploit Architecture - Libraries</font>
-
----
-
-## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
-
-### Metasploit Architecture - Modules</font>
+- Metasploit Express zielt auf Security-Teams, die Sicherheitslücken verifizieren, ab und bietet:
+    - eine automatisierte Beweissammlung
+    - die Benutzung von Brute Force
+    - zusätzlich wurde Nmap integriert und eine benutzerfreundliche GUI angelegt
+- Metasploit Pro fokusiert sich auf Pen-Tester und IT-Security Teams und bietet:
+    - Schnellstart Wizards/MetaModules
+    - erstellen und managen von Social Engineering Aktionen
+    - erweiterte Pro Console, Web Application Testing, dynamische Payloads, Nexpose, VPN pivoting
+- 2011 wurde Metasploit 4.0 veröffentlicht mit mehr als 1600 Exploits und über 438 Payload
 
 ---
 
 ## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
 
-### Metasploit Architecture - Metasploit Object Model</font>
+### Metasploit Architecture - Filesystem
+
+- ist intuitive angelegt und in directories organisiert
+- findet sich in **/usr/share/metasploit-framework/** wieder
+- data:
+    - editierbare Dateien von Binärdaten für bestimmte Exploits, Wordlists, Images, etc.
+- documentation:
+    - Dokumentationen für das Framework
+- lib:
+    - das Essenzielle des Frameworks
+- modules:
+    - MSF Module für Exploits, Auxiliary, Post Module, Payloads, Encoders und Nop Generatoren
+- plugins:
+    - Plugins für Metasploit
+- scripts:
+    - Meterpreter und andere Scripts
+- tools:
+    - Command-Line Utilities
 
 ---
 
 ## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
 
-### Metasploit Architecture - Mixins</font>
+### Metasploit Architecture - Libraries
+
+- erlauben es Exploits auszuführen ohne zusätzlichen Code schreiben zu müssen, z.B. für HTTP-Requests oder Encoding von Payloads
+- einige der wichtigsten Libraries sind:
+    - Rex:
+        - basis Library für die meisten Aufgaben
+        - behandelt Sockets, Protokolle, Textumwandlungen, etc.
+        - SSL, SMB, HTTP, XOR, Base64, Unicode
+    - Msf::Core:
+        - stellt die "basis" API
+        - definiert das Metasploit Framework
+    - Msf::Base:
+        - stellt die "freundliche" API
+        - stellt vereinfachte API für die Benutzung im Framework
 
 ---
 
 ## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
 
-### Metasploit Architecture - Plugins</font>
+### Metasploit Architecture - Modules und Locations
+
+- die Interaktionen mit Metasploit werden hauptsächlich über Module geführt
+- diese sind in zwei Directories gespeichert:
+    - primäre Module in **/usr/share/metasploit-framework/modules/**
+    - benutzerdefinierte Module in **~/.msf4/modules/**
+- alle Metasploitmodule sind in unterschiedlichen Directories organisiert
+- Exploits:
+    - Module, die Payloads benutzen
+- Auxiliary:
+    - Module für Port Scanner, Fuzzers, Sniffers, etc.
+- Payloads:
+    - Code der per Remote ausgeführt wird
+- Encoders:
+    - stellt sicher, dass Payloads ankommen
+- Nops:
+    - hält Größe von Payloads konsistent
+
+---
+
+## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+
+### Metasploit Architecture - Metasploit Object Model
+
+- im Metasploit Framework sind alle Module Ruby-Klassen:
+    - Module erben von der typ-spezifischen Klasse
+    - die typ-spezifischen Klassen erben von der Msf::Module Klasse
+    - es gibt eine gemeinsame API zwischen den Modulen
+- Payloads sind etwas anders:
+    - werden während der Laufzeit erstelltn von verschiedenen Komponenten
+    - Klebt Stagers mit Stages zusammen
+
+---
+
+## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+
+### Metasploit Architecture - Mixins und Plugins
+
+- ein Umweg über Ruby:
+    - jede Klasse hat genau einen Parent
+    - jede Klasse kann mehrere Module haben
+    - Module können neue Methoden hinzufügen
+    - Module können Methoden überladen
+    - Metasploit Module enthalten Mixins zum hinzufügen von Features
+
+- Metasploit Mixins:
+    - fügen eine Klasse in eine Andere, ähnlich der Vererbung, aber nicht ganz
+    - können eine Klassenmethode überschreiben
+    - können neue Features mitbringen und erlaubt Module mit verschiedenen Spezifizierungen
+        - Protokol-spezifisch(HTTP, SMB)
+        - Verhaltens-spezifisch(Brute Force)
+    - können das Verhalten ändern(Überladen)
+
+---
+
+## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+
+### Metasploit Architecture - Mixins und Plugins
+
+- Metasploit Plugins:
+    - arbeiten direkt mit der API
+    - manipulieren das Framework als Ganzes
+    - haken sich in das Event Subsystem ein
+    - automatisieren Tasks, die manuell aufwendig sind
+    - können nur in der msfconsole verwendet werden
+    - dieser können mit Plugins neue Commands gegeben werden
+    - sie erweitern die gesamte Funktionalität des Frameworks
 
 ---
 
