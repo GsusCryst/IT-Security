@@ -143,12 +143,14 @@ background-image: url(pictures/Metasploit-Framework.png)
 - Metasploit ist ein Open-Source Projekt
 - das Teilprojekt Metasploit Framework(MSF) ist das bekannteste, es:
     - bietet Informationen über Sicherheitslücken
-    - wird beim Penetration-Testing und bei der Entwicklung von IDS-Signaturen eingesetzt
+    - wird beim Penetration-Testing und bei der Entwicklung von IDS-Signaturen¹ eingesetzt
     - liefert die nötige Infrastruktur für triviale, routinemäßige und komplexe Tasks
     - darunter Fallen Exploits, Payloads, Encoders etc.
     - diese können mit Angriffsvektoren erweitert werden um hochentwickelte Angriffe:
                 (i) zu erstellen und
                 (ii) durchzuführen
+
+.footnote[¹ IDS = Intrusion Detection System]
 
 </font>
 
@@ -260,6 +262,7 @@ background-image:
     - primäre Module in **/usr/share/metasploit-framework/modules/**
     - benutzerdefinierte Module in **~/.msf4/modules/**
 - alle Metasploitmodule sind in unterschiedlichen Directories organisiert
+
 - Exploits:
     - Module, die Payloads benutzen
 <img src="pictures/Exploits.png" height="100%" width="100%">
@@ -298,7 +301,7 @@ background-image:
     - Module können neue Methoden hinzufügen
     - Module können Methoden überladen
 - Payloads sind etwas anders:
-    - werden während der Laufzeit erstelltn von verschiedenen Komponenten
+    - werden während der Laufzeit erstellt von verschiedenen Komponenten
     - Klebt Stagers mit Stages zusammen
 
 ---
@@ -334,31 +337,51 @@ background-image:
 
 ---
 
-# <font color="#20C20E">.center[Ausgenutzte/Ausnutzbare Schwachstellen mit metasploit]</font>
+## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+
+### Was ist Penetration-Testing überhaupt?
+
+- zu erst: Penetration-Testing und Vulnerability-Scanning sind nicht das Selbe
+- im Gegensatz zum Vulnerability-Scanning werden die Schwachstellen ausgenutzt
+- damit wird bestimmt, ob unauthorisierter Zugang oder andere schadhafte Aktivitäten möglich sind
+- Penetration Testing umfasst:
+    - Network Penetration Testing
+    - Application Security Testing
+    - Sicherheitstests für Steuerungen und Prozesse in den Netzwerken und Anwendungen
+- wird von außerhalb und innerhalb des Netzwerkes durchgeführt
 
 ---
 
-# <font color="#20C20E">.center[Angriffsbeschreibung]</font>
+## <font color="#20C20E">.center[Ausgenutzte/Ausnutzbare Schwachstellen mit metasploit]</font>
 
 ---
 
-# <font color="#20C20E">.center[Toolbeschreibung]</font>
+## <font color="#20C20E">.center[Angriffsbeschreibung]</font>
 
 ---
 
-# <font color="#20C20E">.center[Vorführung]</font>
+## <font color="#20C20E">.center[Toolbeschreibung]</font>
 
 ---
 
-# <font color="#20C20E">.center[Gegenmaßnahmen und ihre Wirksamkeit]</font>
+## <font color="#20C20E">.center[Vorführung]</font>
 
 ---
 
-# <font color="#20C20E">.center[Erweiterungen des Angriffs]</font>
+## <font color="#20C20E">.center[Gegenmaßnahmen und ihre Wirksamkeit]</font>
+
+- System, dass Reparaturen für Techniken bereitstellt, für die Metasploit Payloads besitzt
+- zusätzlich sollte das System aktualisiert werden können, damit upgrades zukünftig möglich sind
+- System sollte mit realen Angriffsskripten evaluiert werden
+- Defensescript nach dem analysieren des Angriffsskripts (besonders bei Zero-Day-Exploits)
 
 ---
 
-# <font color="#20C20E">.center[Links]</font>
+## <font color="#20C20E">.center[Erweiterungen des Angriffs]</font>
+
+---
+
+## <font color="#20C20E">.center[Links]</font>
 
 <font color="#20C20E">- Wikipedia Artikel zu <a href="https://en.wikipedia.org/wiki/Metasploit_Project" target="_blank">Metasploit</a></br></br>
 - <a href="https://www.metasploit.com/" target="_blank">Metasploit Framework</a></br></br>
@@ -374,7 +397,7 @@ background-image:
 class: middle, center
 background-position: top
 
-# <font color="#20C20E">.center[Vielen Dank! Fragen?]
+## <font color="#20C20E">.center[Vielen Dank! Fragen?]
 
 
         </textarea>
