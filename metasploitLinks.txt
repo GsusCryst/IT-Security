@@ -14,3 +14,5 @@ https://www.blackmoreops.com/2015/11/03/how-to-search-exploits-in-metasploit/
 https://infosecaddicts.com/whats-metasploit/
 
 https://github.com/rapid7/metasploit-framework/tree/master/documentation
+http://www.fastandeasyhacking.com/manual
+http://www.fastandeasyhacking.com/media

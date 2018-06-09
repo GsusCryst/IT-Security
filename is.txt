@@ -1,4 +1,4 @@
-Vortrag + Vorführung
+﻿Vortrag + Vorführung
 
 -> Einführung in Themen
 -> Theoretischer Hintergrund
@@ -9,5 +9,5 @@ Vortrag + Vorführung
 -> denkbare Erweiterungen des Angriffs
 ---
 Vortrag als PDF an Thiel bis 16.07. (Bewertet)
-06.06 Metasploit
-Sasha Koß 508877
+13.06 Metasploit
+
