@@ -124,12 +124,17 @@ background-image: url(pictures/Metasploit-Framework.png)
 
 ### Was ist ein Vulnerability Scanner?
 
-- dies sind automatisierte Tools um Sicherheitslücken in einem System oder einer Applikation zu identifizieren
-- diese Scanner nehmen einen Fingerabdruck des Ziel-OSs(Version, Type) und der laufenden Anwendungen
-- nun können mit dem Vulnerability Scanner bestimmte Checks durchgeführt werden, mit denen man Schwachstellen im OS entdecken kann
-- diese Checks sind aber nur so gut wie ihr Ersteller, und können mit Schwachstellen daneben liegen oder falsch darstellen
+- automatisiertes Tool um Sicherheitslücken in einem System oder einer Applikation zu identifizieren
+- nehmen einen Fingerabdruck des Ziel-OSs(Version, Type) und der laufenden Anwendungen
+- nun können bestimmte Checks durchgeführt werden, mit denen man Schwachstellen im OS entdecken kann
+- diese Checks werden ausgeführt für:
+    - offene Ports
+    - Shares
+    - veraltete oder unsichere Dienste
+    - Passwort- und Benutzerrichtlinien
+- False-Positives lassen sich dabei nicht ausschließen
 - viele Unternehmen benutzen die Vulnerability Scanner um Out-Of-Date Systeme oder potenzielle Exploits zu entdecken
-- die Scanner spielen eine große Rolle im Penetration Testing, vorallem beim Integritätstest, da man mehrere Angriffe ausführen kann und sich keine Sorgen ums Verschleiern machen muss
+- die Scanner spielen eine große Rolle im Penetration Testing, vorallem beim Integritätstest
 - einer dieser Vulnerability Scanner ist das **Metasploit Framework**_(MSF)_
 
 </font>
@@ -183,7 +188,22 @@ background-image: url(pictures/Metasploit-Framework.png)
     - Schnellstart Wizards/MetaModules
     - erstellen und managen von Social Engineering Aktionen
     - erweiterte Pro Console, Web Application Testing, dynamische Payloads, Nexpose, VPN pivoting
-- 2011 wurde Metasploit 4.0 veröffentlicht mit mehr als 1600 Exploits und über 438 Payload
+- 2011 wurde Metasploit 4.0 veröffentlicht mit inzwischen mehr als 1600 Exploits und über 438 Payload
+
+---
+
+## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+
+### Was ist Penetration-Testing überhaupt?
+
+- zu erst: Penetration-Testing und Vulnerability-Scanning sind nicht das Selbe
+- im Gegensatz zum Vulnerability-Scanning werden die Schwachstellen ausgenutzt
+- damit wird bestimmt, ob unauthorisierter Zugang oder andere schadhafte Aktivitäten möglich sind
+- Penetration Testing umfasst:
+    - Network Penetration Testing
+    - Application Security Testing
+    - Sicherheitstests für Steuerungen und Prozesse in den Netzwerken und Anwendungen
+- wird von außerhalb und innerhalb des Netzwerkes durchgeführt
 
 ---
 
@@ -203,6 +223,7 @@ background-image:
 
 - ist intuitive angelegt und in directories organisiert
 - findet sich in **/usr/share/metasploit-framework/** wieder
+
 - data:
     - editierbare Dateien von Binärdaten für bestimmte Exploits, Wordlists, Images, etc.
 <img src="pictures/Data.png" height="100%" width="100%">
@@ -339,16 +360,23 @@ background-image:
 
 ## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
 
-### Was ist Penetration-Testing überhaupt?
+### Metasploit Architecture - GUI
 
-- zu erst: Penetration-Testing und Vulnerability-Scanning sind nicht das Selbe
-- im Gegensatz zum Vulnerability-Scanning werden die Schwachstellen ausgenutzt
-- damit wird bestimmt, ob unauthorisierter Zugang oder andere schadhafte Aktivitäten möglich sind
-- Penetration Testing umfasst:
-    - Network Penetration Testing
-    - Application Security Testing
-    - Sicherheitstests für Steuerungen und Prozesse in den Netzwerken und Anwendungen
-- wird von außerhalb und innerhalb des Netzwerkes durchgeführt
+- MSFconsole:
+    - zentrailisiertes, konsolen-basiertes Interface
+    - einziger Weg um Zugriff auf nahezu alle Optionen von MSF zu bekommen
+    - enthält die meisten Features
+    - stabilste MSF Interface
+    - Readline Support, Tabben, Command-Vervollständigung
+    - ausführen von externen Commands ist möglich
+
+- Armitage:
+    - skriptfähiges Team-Collaborations Tool
+    - visualisiert Ziele, empfiehlt Exploits
+    - bringt erweiterte Post-Exploitation-Funktionen mit
+    - ermöglicht das Benutzen von gleichen Sitzungen
+    - Teilen des Hosts, erfasster Daten und heruntergeladener Dateien
+    - erhöht die Effektivität von Red Teams
 
 ---
 
