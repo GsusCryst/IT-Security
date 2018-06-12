@@ -21,3 +21,6 @@ Folie 26-28 Formatierung
 
 Erweiterung des Angriffs?
 Links überarbeiten
+
+NMAP bei Theorie
+ARP-Sweep
