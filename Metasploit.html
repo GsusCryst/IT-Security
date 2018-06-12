@@ -79,52 +79,18 @@ class: center, middle
 
 ---
 
-layout: true
-
-## .center[Einführung ins Metasploit Framework]
-
-### Was ist ein Vulnerability Scanner?
-
----
-
-- automatisiertes Tool um Sicherheitslücken zu identifizieren
-
-- nimmt Fingerabdruck des Ziel-OSs(Version, Type) und der laufenden Anwendungen(SMB, Tomcat, Glassfish, etc.)
-
-- kann bestimmte Checks durchführen, um Schwachstellen zu entdecken, z.B. für:
-    - offene Ports
-    - Shares
-    - veraltete oder unsichere Dienste
-    - Passwort- und Benutzerrichtlinien
-
-
-- False-Positives lassen sich dabei nicht ausschließen
-
----
-
-- werden benutzt um Out-Of-Date Systeme oder potenzielle Exploits zu entdecken
-
-- spielen große Rolle im Penetration Testing(z.B. Integritätstest)
-
-- einer dieser Vulnerability Scanner ist das **Metasploit Framework**_(MSF)_
-
----
-
-layout: false
-
 ## .center[Einführung ins Metasploit Framework]
 
 ### Was ist das Metasploit Framework(MSF)?
 
 - Metasploit ist ein Open-Source Projekt
-- Metasploit Framework(MSF) ist ein Teilprojekt, es:
-    - bietet Informationen über Sicherheitslücken
-    - wird beim Penetration-Testing und bei der Entwicklung von IDS-Signaturen¹ eingesetzt
-    - liefert die nötige Infrastruktur für triviale, routinemäßige und komplexe Tasks
+- Metasploit Framework ist ein Teilprojekt davon
+- ist ein Vulnerability Scanner, der:
+    - Informationen über Sicherheitslücken bietet
+    - beim Penetration-Testing und bei der Entwicklung von IDS-Signaturen¹ eingesetzt wird
+    - die nötige Infrastruktur für triviale, routinemäßige und komplexe Tasks liefert
     - darunter Fallen Exploits, Payloads, Encoders etc.
-    - diese können mit Angriffsvektoren erweitert werden um hochentwickelte Angriffe:
-                (i) zu erstellen und
-                (ii) durchzuführen
+    - diese können mit Angriffsvektoren erweitert werden
 
 .footnote[¹ IDS = Intrusion Detection System]
 
@@ -167,6 +133,37 @@ layout:true
     - Schnellstart Wizards/MetaModules
     - erstellen und managen von Social Engineering Aktionen
     - erweiterte Pro Console, Web Application Testing, dynamische Payloads, Nexpose, VPN pivoting
+
+---
+
+layout: true
+
+## .center[Einführung ins Metasploit Framework]
+
+### Was ist ein Vulnerability Scanner?
+
+---
+
+- automatisiertes Tool um Sicherheitslücken zu identifizieren
+
+- nimmt Fingerabdruck des Ziel-OSs(Version, Type) und der laufenden Anwendungen(SMB, Tomcat, Glassfish, etc.)
+
+- kann bestimmte Checks durchführen, um Schwachstellen zu entdecken, z.B. für:
+    - offene Ports
+    - Shares
+    - veraltete oder unsichere Dienste
+    - Passwort- und Benutzerrichtlinien
+
+
+- False-Positives lassen sich dabei nicht ausschließen
+
+---
+
+- werden benutzt um Out-Of-Date Systeme oder potenzielle Exploits zu entdecken
+
+- spielen große Rolle im Penetration Testing(z.B. Integritätstest)
+
+- einer dieser Vulnerability Scanner ist das **Metasploit Framework**_(MSF)_
 
 ---
 
@@ -224,6 +221,7 @@ layout: true
 <img src="pictures/Modules.png" height="100%" width="100%">
 - plugins:
     - Plugins für Metasploit
+
 <img src="pictures/Plugins.png" height="100%" width="100%">
 
 ---
@@ -291,6 +289,7 @@ layout: true
 - Encoders:
     - stellt sicher, dass Payloads ankommen
 <img src="pictures/Encoders.png" height="100%" width="100%">
+
 - Nops:
     - hält Größe von Payloads konsistent
 <img src="pictures/Nops.png" height="100%" width="100%">
@@ -317,15 +316,17 @@ layout: false
 
 ---
 
+layout: true
+
 ## .center[Theoretische Hintergrund von Metasploit]
 
 ### Metasploit Architecture - Mixins und Plugins
 
+---
+
 - Metasploit Module enthalten Mixins zum hinzufügen von Features
 
 - Metasploit Mixins:
-    - fügen eine Klasse in eine Andere, ähnlich der Vererbung, aber nicht ganz
-    - können eine Klassenmethode überschreiben
     - können neue Features mitbringen und erlaubt Module mit verschiedenen Spezifizierungen
         - Protokol-spezifisch(HTTP, SMB)
         - Verhaltens-spezifisch(Brute Force)
@@ -333,17 +334,12 @@ layout: false
 
 ---
 
-## .center[Theoretische Hintergrund von Metasploit]
-
-### Metasploit Architecture - Mixins und Plugins
-
 - Metasploit Plugins:
     - arbeiten direkt mit der API
     - manipulieren das Framework als Ganzes
     - haken sich in das Event Subsystem ein
     - automatisieren Tasks, die manuell aufwendig sind
     - können nur in der msfconsole verwendet werden
-    - dieser können mit Plugins neue Commands gegeben werden
     - sie erweitern die gesamte Funktionalität des Frameworks
 
 ---
@@ -500,52 +496,11 @@ LHOST=192.168.56.102 LPORT=8080 -f exe --platform windows --arch x86
 
 .left[Gegenmaßnahme] | Wirksamkeit¹
 ------------- | -----------
-|
-|
-|
-|
-|
-|
 Reparaturmöglichkeit für Dienste, für die Metasploit Payloads besitzt | .center[1]
-|
-|
-|
-|
-|
-|
 System sollte aktualisierbar sein für Patches und Sicherheits-Upgrades | .center[2]
-|
-|
-|
-|
-|
-|
 Angriffsskripte evaluieren/analysieren und Defensivskripte erstellen(besonders bei 0-Day-Exploits) | .center[4]
-|
-|
-|
-|
-|
-|
 Defensivskripte dem IDS hinzufügen | .center[5]
-|
-|
-|
-|
-|
-|
 System vom Internet trennen ¯\\\_(ツ)\_/¯ | .center[42]
-|
-|
-|
-|
-|
-|
-|
-|
-|
-|
-
 
 .footnote[¹ Wirksamkeit: 1(sehr gering)-5(sehr hoch)]
 
