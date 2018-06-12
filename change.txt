@@ -1,0 +1,23 @@
+Folie 2-4 Fragestellung anpassen
+Folie 5-9 Stickpunkte kürzen/Splitten
+Folie 10 center all
+Folie 11 Data raus/Splitten
+Folie 14 SPlitten
+Folie 16 Löschen?/Stagers und Stages erklären
+Folie 7-8 Tabelle
+Folie 19 Splitten
+Folie 18 kürzen
+Folie 19 Meterpreter hinzufügen
+Folie 30 evaluieren/defens zusammenfassen
+
+-------------------------------------------------
+
+Folie 20 SNMP erklären/Formatierung
+Folie 21 " + Meterpreter
+Folie 22-25 center Bilder/Überschrift?
+Folie 26-28 Formatierung
+
+-------------------------------------------------
+
+Erweiterung des Angriffs?
+Links überarbeiten
