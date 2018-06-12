@@ -7,32 +7,21 @@
             @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
             @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
             @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
-            body { font-family: 'Droid Serif'; }
             h1, h2, h3, h4 { font-family: 'Yanone Kaffeesatz';
-                         font-weight: normal; }
+                         font-weight: bold; }
             .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-            a {
-                color: #20C20E;
-            }
+	    .remark-slide-content { font-size: 22px; }
         </style>
     </head>
     <body>
         <textarea id="source">
 
-background-color: black
 background-image: url(pictures/metaploit_startscreen.png)
 class: center, middle
 
 ---
 
-layout: true
-background-color: black
-background-position: middle
-background-image: url(pictures/Metasploit-Framework.png)
-
----
-
-# <font color="#20C20E">.center[Agenda]
+# .center[Agenda]
 
   1.0 Einführung ins Metasploit Framework // kris
     + Anfänge/Geschichte
@@ -52,7 +41,7 @@ background-image: url(pictures/Metasploit-Framework.png)
 
 ---
 
-# <font color="#20C20E">.center[Agenda]
+# .center[Agenda]
 
   4.0 Ausgenutzte/Ausnutzbare Schwachstellen mit Metasploit // sasha
     + Welche Angriffsvektoren ermöglicht Metasploit?
@@ -69,7 +58,7 @@ background-image: url(pictures/Metasploit-Framework.png)
     + Payload abliefern?
 ---
 
-# <font color="#20C20E">.center[Agenda]
+# .center[Agenda]
 
   7.0 Gegenmaßnahmen und ihre Wirksamkeit // kris
     + Antivirus? Hardware/Firewall?
@@ -83,11 +72,11 @@ background-image: url(pictures/Metasploit-Framework.png)
 
   10.0 Links
 
-</font>
+
 
 ---
 
-## <font color="#20C20E">.center[Einführung ins Metasploit Framework]
+## .center[Einführung ins Metasploit Framework]
 
 ### Was ist ein Vulnerability Scanner?
 
@@ -104,11 +93,11 @@ background-image: url(pictures/Metasploit-Framework.png)
 - die Scanner spielen eine große Rolle im Penetration Testing, vorallem beim Integritätstest
 - einer dieser Vulnerability Scanner ist das **Metasploit Framework**_(MSF)_
 
-</font>
+
 
 ---
 
-## <font color="#20C20E">.center[Einführung ins Metasploit Framework]
+## .center[Einführung ins Metasploit Framework]
 
 ### Was ist das Metasploit Framework(MSF)?
 
@@ -124,11 +113,11 @@ background-image: url(pictures/Metasploit-Framework.png)
 
 .footnote[¹ IDS = Intrusion Detection System]
 
-</font>
+
 
 ---
 
-## <font color="#20C20E">.center[Einführung ins Metasploit Framework]
+## .center[Einführung ins Metasploit Framework]
 
 ### Entwicklung von Metasploit
 
@@ -139,11 +128,11 @@ background-image: url(pictures/Metasploit-Framework.png)
 - 2007 wurde das Framework komplett überarbeitet, mit Ruby als Programmiersprache
 - Rapid7, eine Sicherheitsfirma, die einheitliche Vulnerability Management Solutions zur Verfügung stellt, übernahm das Projekt 2009
 - 2010 kamen Metasploit Express und Metasploit Pro zum Repertoire
-</font>
+
 
 ---
 
-## <font color="#20C20E">.center[Einführung ins Metasploit Framework]
+## .center[Einführung ins Metasploit Framework]
 
 ### Entwicklung von Metasploit
 
@@ -159,7 +148,7 @@ background-image: url(pictures/Metasploit-Framework.png)
 
 ---
 
-## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+## .center[Theoretische Hintergrund von Metasploit]
 
 ### Was ist Penetration-Testing überhaupt?
 
@@ -176,15 +165,15 @@ background-image: url(pictures/Metasploit-Framework.png)
 
 background-image:
 
-## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+## .center[Theoretische Hintergrund von Metasploit]
 
 ### Metasploit Architecture
 
-<img src="pictures/Metasploitarchitecture.png" height="90%" width="90%">
+<img src="pictures/Metasploitarchitecture.png" height="85%" width="85%">
 
 ---
 
-## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+## .center[Theoretische Hintergrund von Metasploit]
 
 ### Metasploit Architecture - Filesystem
 
@@ -203,7 +192,7 @@ background-image:
 
 ---
 
-## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+## .center[Theoretische Hintergrund von Metasploit]
 
 ### Metasploit Architecture - Filesystem
 
@@ -222,7 +211,7 @@ background-image:
 
 ---
 
-## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+## .center[Theoretische Hintergrund von Metasploit]
 
 ### Metasploit Architecture - Libraries
 
@@ -241,7 +230,7 @@ background-image:
 
 ---
 
-## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+## .center[Theoretische Hintergrund von Metasploit]
 
 ### Metasploit Architecture - Modules und Locations
 
@@ -260,7 +249,7 @@ background-image:
 
 ---
 
-## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+## .center[Theoretische Hintergrund von Metasploit]
 
 ### Metasploit Architecture - Modules und Locations
 
@@ -276,7 +265,7 @@ background-image:
 
 ---
 
-## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+## .center[Theoretische Hintergrund von Metasploit]
 
 ### Metasploit Architecture - Metasploit Object Model
 
@@ -294,7 +283,7 @@ background-image:
 
 ---
 
-## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+## .center[Theoretische Hintergrund von Metasploit]
 
 ### Metasploit Architecture - Mixins und Plugins
 
@@ -310,7 +299,7 @@ background-image:
 
 ---
 
-## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+## .center[Theoretische Hintergrund von Metasploit]
 
 ### Metasploit Architecture - Mixins und Plugins
 
@@ -325,7 +314,7 @@ background-image:
 
 ---
 
-## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
+## .center[Theoretische Hintergrund von Metasploit]
 
 ### Metasploit Architecture - UI
 
@@ -347,7 +336,7 @@ background-image:
 
 ---
 
-## <font color="#20C20E">.center[Toolbeschreibung]
+## .center[Toolbeschreibung]
 
 - Information Gathering
           Port Scanning
@@ -361,7 +350,7 @@ background-image:
           NeXpose -> Vulnerability Management / Analyse Tool
           Nessus -> Portscanner / Dictionary Attack
 ---
-## <font color="#20C20E">.center[Toolbeschreibung]
+## .center[Toolbeschreibung]
 - Exploit Development Payloads
           MSFvenom: Custom Payload Erstellung
 - Using Exploits
@@ -374,22 +363,22 @@ background-image:
           exploit -> to start service
 
 ---
-## <font color="#20C20E">.center[Toolbeschreibung - Armitage]
+## .center[Toolbeschreibung - Armitage]
 
   <img src="pictures/armitage_overview_portscan.png" height="85%" width="85%">
 ---
-## <font color="#20C20E">.center[Toolbeschreibung - Armitage]
+## .center[Toolbeschreibung - Armitage]
 
   <img src="pictures/armitage_psexec_login.png" height="85%" width="85%">
 ---
-## <font color="#20C20E">.center[Toolbeschreibung - Armitage]
+## .center[Toolbeschreibung - Armitage]
 
   <img src="pictures/armitage_psexec_exploit.png" height="85%" width="85%">
 ---
-## <font color="#20C20E">.center[Toolbeschreibung - Armitage]
+## .center[Toolbeschreibung - Armitage]
   <img src="pictures/armitage_psexec_hashdump.png" height="85%" width="85%">
 ---
-## <font color="#20C20E">.center[Ausnutzbare Schwachstellen mit metasploit]
+## .center[Ausnutzbare Schwachstellen mit metasploit]
 + Web-Server
     GlassFish
     Apache Tomcat
@@ -412,7 +401,7 @@ background-image:
     RDP
 ---
 
-## <font color="#20C20E">.center[Angriffsbeschreibung]
+## .center[Angriffsbeschreibung]
 
   Angriff über msfconsole -> Demo
     1. ARP Sweep zum finden von Zielen
@@ -424,7 +413,7 @@ background-image:
     7. Z.B. Upload Payload im Autostart Verzeichnis
 
 ---
-## <font color="#20C20E">.center[Angriffsbeschreibung]
+## .center[Angriffsbeschreibung]
   Angriff mit Armitage -> Demo
     1. NMAP Scan mit IP Range um Ziele zu finden
     2. NMAP Quick-Portscan mit Ziel IP
@@ -445,11 +434,11 @@ background-image:
 
 ---
 
-## <font color="#20C20E">.center[Vorführung]</font>
+## .center[Vorführung]
 
 ---
 
-## <font color="#20C20E">.center[Gegenmaßnahmen und ihre Wirksamkeit]
+## .center[Gegenmaßnahmen und ihre Wirksamkeit]
 
 .left[Gegenmaßnahme] | Wirksamkeit¹
 ------------- | -----------
@@ -511,27 +500,27 @@ System vom Internet trennen ¯\\\_(ツ)\_/¯ | .center[42]
 
 ---
 
-## <font color="#20C20E">.center[Erweiterungen des Angriffs]</font>
+## .center[Erweiterungen des Angriffs]
 
 ---
 
-## <font color="#20C20E">.center[Links]</font>
+## .center[Links]
 
-<font color="#20C20E">- Wikipedia Artikel zu <a href="https://en.wikipedia.org/wiki/Metasploit_Project" target="_blank">Metasploit</a></br></br>
+- Wikipedia Artikel zu <a href="https://en.wikipedia.org/wiki/Metasploit_Project" target="_blank">Metasploit</a></br></br>
 - <a href="https://www.metasploit.com/" target="_blank">Metasploit Framework</a></br></br>
 - <a href="https://infosecaddicts.com/whats-metasploit/" target="_blank">What is Metasploit</a></br></br>
 - <a href="https://docs.kali.org/general-use/starting-metasploit-framework-in-kali" target="_blank">Metasploit Framework with Kali</a></br></br>
 - <a href="https://null-byte.wonderhowto.com/how-to/metasploit-basics/" target="_blank">Metasploit Basics</a></br></br>
 - <a href="https://jonathansblog.co.uk/metasploit-tutorial-for-beginners" target="_blank">Metasploit Beginners Tutorial</a></br></br>
 - Free <a href="https://www.offensive-security.com/metasploit-unleashed/" target="_blank">Metasploit Ethical Hacking Course</a> by OffensiveSecurity</br></br>
-- <a href="https://www.blackmoreops.com/2015/11/03/how-to-search-exploits-in-metasploit/" target="_blank">How to search exploits</a></font>
+- <a href="https://www.blackmoreops.com/2015/11/03/how-to-search-exploits-in-metasploit/" target="_blank">How to search exploits</a>
 
 ---
 
 class: middle, center
 background-position: top
 
-## <font color="#20C20E">.center[Vielen Dank! Fragen?]
+## .center[Vielen Dank! Fragen?]
 
 
         </textarea>
