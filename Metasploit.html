@@ -26,55 +26,43 @@ class: center, middle
 
 ---
 
+layout: true
+
 # .center[Agenda]
+
+---
 
   1.0 Einführung ins Metasploit Framework
-    + Was ist das Metasploit Framework?
-    + Entwicklung von Metasploit
+    - Was ist das Metasploit Framework?
+    - Entwicklung von Metasploit
 
   2.0 Theoretische Hintergrund von Metasploit
-    + Was ist ein Vulnerability Scanner?
-    + Was ist Penetration-Testing überhaupt?
-    + Metasploit Architecture
+    - Was ist ein Vulnerability Scanner?
+    - Was ist Penetration-Testing überhaupt?
+    - Metasploit Architecture 
 
-
-  3.0 Toolbeschreibung // sasha
-    + Was leistet Metasploit?
-    + Wie wendet man Metasploit an?
-    + Beispiele
+  3.0 Toolbeschreibung
+    - Was leistet Metasploit?
+    - Wie wendet man Metasploit an?
+    - Beispiele
 
 ---
-
-# .center[Agenda]
 
   4.0 Ausnutzbare Schwachstellen mit Metasploit
-    + Welche Angriffsvektoren ermöglicht Metasploit?
-    + Bekannte Schwachstellen?
-
+    - Welche Angriffsvektoren ermöglicht Metasploit?
+    - Bekannte Schwachstellen?
   5.0 Angriffsbeschreibung
-    + Wie verläuft ein Angriff, welche Tools werden üblicherweise Verwendet?
-    + Beispiele
-
-  6.0 Erweiterungen des Angriffs
-    + Welche Möglichkeiten gibt es den Angriff effektiver zu gestalten?
-    + Selbstschutz vor Identifikation? Proxy?
-    + Payload abliefern?
----
-
-# .center[Agenda]
-
+    - Wie verläuft ein Angriff, welche Tools werden üblicherweise Verwendet?
+    - Beispiele
+  6.0 Vorführung
+    - VM Machine Hack / Metasploitable3
   7.0 Gegenmaßnahmen und ihre Wirksamkeit
 
-  8.0 Vorführung
-    + VM Machine Hack / Metasploitable3
-
-  9.0 Links
-
-  10.0 Links
-
-
+  8.0 Links
 
 ---
+
+layout: false
 
 ## .center[Einführung ins Metasploit Framework]
 
@@ -85,13 +73,13 @@ class: center, middle
 - ist ein Vulnerability Scanner, der:
     - Informationen über Sicherheitslücken bietet
     - beim Penetration-Testing und bei der Entwicklung von IDS-Signaturen¹ eingesetzt wird
-    - die nötige Infrastruktur für triviale, routinemäßige und komplexe Tasks liefert
-    - darunter Fallen Exploits, Payloads, Encoders etc.
+    - die nötige Infrastruktur für Tasks liefert
+    - darunter Fallen Exploits, Payloads, Encoders, etc.
+    - diese können mit Angriffsvektoren erweitert werden
         - Meterpreter ist der wichtigste dynamische Payload:
             - kurz für **Meta-Interpreter**
             - funktioniert mit dll-Injection
             - liegt komplett im Speicher des Remote-Hosts
-    - diese können mit Angriffsvektoren erweitert werden
 
 .footnote[¹ IDS = Intrusion Detection System]
 
@@ -128,12 +116,13 @@ layout:true
 - Metasploit Express zielt auf Security-Teams, die Sicherheitslücken verifizieren, ab und bietet:
     - eine automatisierte Beweissammlung
     - die Benutzung von Brute Force
-    - zusätzlich wurde Nmap integriert und eine benutzerfreundliche GUI angelegt
+    -  Nmap Integration
+    - benutzerfreundliche GUI
 
 - Metasploit Pro fokusiert sich auf Pen-Tester und IT-Security Teams und bietet:
     - Schnellstart Wizards/MetaModules
     - erstellen und managen von Social Engineering Aktionen
-    - erweiterte Pro Console, Web Application Testing, dynamische Payloads, Nexpose, VPN pivoting
+    - Web Application Testing, erweiterte Pro Console, dynamische Payloads, Nexpose, VPN pivoting
 
 ---
 
@@ -147,24 +136,17 @@ layout: true
 
 - automatisiertes Tool um Sicherheitslücken zu identifizieren
 
-- nimmt Fingerabdruck des Ziel-OSs(Version, Type) und der laufenden Anwendungen(SMB, Tomcat, Glassfish, etc.)
-
-- kann bestimmte Checks durchführen, um Schwachstellen zu entdecken, z.B. für:
-    - offene Ports
-    - Shares
-    - veraltete oder unsichere Dienste
-    - Passwort- und Benutzerrichtlinien
-
-
-- False-Positives lassen sich dabei nicht ausschließen
-
----
-
 - werden benutzt um Out-Of-Date Systeme oder potenzielle Exploits zu entdecken
 
 - spielen große Rolle im Penetration Testing(z.B. Integritätstest)
 
-- einer dieser Vulnerability Scanner ist das **Metasploit Framework**_(MSF)_
+- nimmt Fingerabdruck des Ziel-OSs(Version, Type) und der laufenden Anwendungen(SMB, Tomcat, Glassfish, etc.)
+- kann Checks durchführen, um Schwachstellen zu entdecken, z.B. für:
+    - offene Ports
+    - Shares
+    - veraltete oder unsichere Dienste
+    - Passwort- und Benutzerrichtlinien
+- False-Positives lassen sich dabei nicht ausschließen
 
 ---
 
@@ -205,7 +187,7 @@ layout: true
 
 ---
 
-- intuitive angelegt, in Directories organisiert
+- intuitiv angelegt
 - findet sich in **/usr/share/metasploit-framework/** wieder
 
 - documentation:
@@ -218,7 +200,7 @@ layout: true
 ---
 
 - modules:
-    - MSF Module für Exploits, Auxiliary, Post Module, Payloads, Encoders und Nop Generatoren
+    - MSF Module für Exploits, Auxiliary, Posts, Payloads, Encoders und NOP-Generatoren
 <img src="pictures/Modules.png" height="100%" width="100%">
 - plugins:
     - Plugins für Metasploit
@@ -230,6 +212,7 @@ layout: true
 - scripts:
     - Meterpreter und andere Scripts
 <img src="pictures/Scripts.png" height="100%" width="100%">
+
 - tools:
     - Command-Line Utilities
 <img src="pictures/Tools.png" height="100%" width="100%">
@@ -242,7 +225,7 @@ layout: false
 
 ### Metasploit Architecture - Libraries
 
-- erlauben es Exploits auszuführen ohne zusätzlichen Code schreiben zu müssen, z.B. für HTTP-Requests oder Encoding von Payloads
+- erlauben es Exploits auszuführen, z.B. für HTTP-Requests oder das Encoding von Payloads
 - einige der wichtigsten Libraries sind:
     - Rex:
         - basis Library für die meisten Aufgaben
@@ -253,7 +236,7 @@ layout: false
         - definiert das Metasploit Framework
     - Msf::Base:
         - stellt die "freundliche" API
-        - stellt vereinfachte API für die Benutzung im Framework
+        - stellt vereinfachte APIs für die Benutzung im Framework
 
 ---
 
@@ -302,10 +285,10 @@ layout: true
 ---
 
 - Encoders:
-    - stellt sicher, dass Payloads ankommen
+    - stellt sicher, dass Payloads vollständig ankommen
 <img src="pictures/Encoders.png" height="100%" width="100%">
 
-- Nops:
+- NOPs:
     - hält Größe von Payloads konsistent
 <img src="pictures/Nops.png" height="100%" width="100%">
 
@@ -319,14 +302,13 @@ layout: true
 
 ---
 
-- Metasploit Module enthalten Mixins zum hinzufügen von Features
-
 - Metasploit Mixins:
 
-    - können neue Features mitbringen und erlaubt Module mit verschiedenen Spezifizierungen
+    - können neue Features mitbringen 
+    - erlaubt Module mit verschiedenen Spezifizierungen
         - Protokol-spezifisch(HTTP, SMB)
         - Verhaltens-spezifisch(Brute Force)
-    - können das Verhalten ändern(Überladen)
+    - können das Verhalten der Module ändern(Methoden überladen)
 
 ---
 
@@ -334,10 +316,10 @@ layout: true
 
     - arbeiten direkt mit der API
     - manipulieren das Framework als Ganzes
-    - haken sich in das Event Subsystem ein
-    - automatisieren Tasks, die manuell aufwendig sind
-    - können nur in der msfconsole verwendet werden
+    - haken sich dabei in das Event Subsystem ein
     - sie erweitern die gesamte Funktionalität des Frameworks
+    - automatisieren Tasks, die manuell aufwendig sind
+    - können nur in der msfconsole verwendet werden(neue Commands)
 
 ---
 
@@ -352,9 +334,8 @@ layout: true
 - MSFconsole:
 
     - zentrailisiertes, konsolen-basiertes Interface
-    - einziger Weg um Zugriff auf nahezu alle Optionen von MSF zu bekommen
-    - enthält die meisten Features
     - stabilste MSF Interface
+    - einziger Weg um Zugriff auf nahezu alle Optionen zu bekommen
     - Readline Support, Command-Vervollständigung
     - ausführen von externen Commands ist möglich
 
@@ -362,9 +343,10 @@ layout: true
 
 - Armitage:
 
-    - graphisches Interface
     - skriptfähiges Team-Collaborations Tool
-    - visualisiert Ziele, empfiehlt Exploits
+    - sie erweitern die gesamte Funktionalität des Frameworks
+    - visualisiert Ziele
+    - empfiehlt Exploits
     - bringt erweiterte Post-Exploitation-Funktionen mit
     - ermöglicht das Benutzen von gleichen Sitzungen
     - Teilen des Hosts, erfasster Daten und heruntergeladener Dateien
@@ -377,19 +359,19 @@ layout: false
 ## .center[Toolbeschreibung]
 
 - Information Gathering
-    - ARP Sweep -> Zielhost IP Adressen finden
+    - ARP Sweep -> Zielhost IP-Adressen finden
     - Port Scanning -> Offene Ports?
     - Service Identification -> Welche Dienste stehen hinter dem Port?
-    - Password Sniffing -> kann IMAP / FTP und HTTP GET Login abfangen
-    - SNMP sweeping -> Managed Netzwerkelemente finden
+    - Password Sniffing -> kann IMAP/FTP und HTTP GET Login abfangen
+    - SNMP sweeping -> Managed Networkelements finden
 
 
-- Vulnerability Scanning with Metasploit (auxiliary/scanner/)
+- Vulnerability Scanning mit Metasploit (auxiliary/scanner/)
     - smb_login        -> Filesystem Zugriff bei Windows
     - VNC Scanner      -> Dienstscanner
     - WMAP Web Scanner -> Portscanner für WebApps
-    - NeXpose          -> Vulnerability Management / Analyse Tool
-    - Nessus           -> Portscanner / Dictionary Attack
+    - NeXpose          -> Vulnerability Management / Analyse-Tool
+    - Nessus           -> Portscanner / Dictionary-Attack
 ---
 ## .center[Toolbeschreibung]
   - MSFvenom: Custom Payload Erstellung
@@ -411,7 +393,7 @@ LHOST=192.168.56.102 LPORT=8080 -f exe --platform windows --arch x86
     - use exploit/*
     - show targets, payloads, options
     - set payload, Hosts, Ports, Username, Userpassword
-    - exploit -> to start service
+    - exploit -> zum Starten des Services
 
 ---
 ## .center[Toolbeschreibung - Armitage]
@@ -441,7 +423,7 @@ LHOST=192.168.56.102 LPORT=8080 -f exe --platform windows --arch x86
     - Jenkins
     - MySQL
 - Betriebssystem Dienste & Anwendungen
-    - Internet Information Service / IIS
+    - Internet Information Service(IIS)
     - PsExec
     - SSH
     - RDP
@@ -451,17 +433,17 @@ LHOST=192.168.56.102 LPORT=8080 -f exe --platform windows --arch x86
 
 ### Angriff mit msfconsole wird Vorgeführt
 
-  1. ARP Sweep zum finden von Zielen
+  1. ARP Sweep zum Finden von Zielen
     - Link Layer: Address Resolution Protocol
-  2. Port Scanning zum finden Offener Ports
+  2. Port Scanning zum Finden offener Ports
     - Transport Layer: TCP/UDP
   3. Exploit laden
     - Exploit passend zum offenen Port+Service
-  4. Exploit mit set konfigurieren und ausführen
+  4. Exploit mit `set` konfigurieren und ausführen
     - set RHOST, RPORT
     - reverse TCP: set LHOST, LPORT
   5. Angriff mit Meterpreter fortführen
-    - Z.B. Upload Payload im Autostart Verzeichnis
+    - z.B. Upload Payload im Autostart Verzeichnis
     - Keylogger ausführen
     - Zugangsdaten auslesen
 ---
@@ -496,15 +478,14 @@ LHOST=192.168.56.102 LPORT=8080 -f exe --platform windows --arch x86
 ------------- | -----------
 Reparaturmöglichkeit für Dienste, für die Metasploit Payloads besitzt | .center[1]
 System sollte aktualisierbar sein für Patches und Sicherheits-Upgrades | .center[2]
-Angriffsskripte evaluieren/analysieren und Defensivskripte erstellen(besonders bei 0-Day-Exploits) | .center[4]
-Defensivskripte dem IDS hinzufügen | .center[5]
+Angriffsskripte evaluieren/analysieren und Defensivskripte erstellen(z.B. bei 0-Day-Exploits) | .center[3]
+Defensivskripte einem IDS hinzufügen | .center[4]
+IDS zu IPS² erweitern | .center[5]
 System vom Internet trennen ¯\\\_(ツ)\_/¯ | .center[42]
 
 .footnote[¹ Wirksamkeit: 1(sehr gering)-5(sehr hoch)]
 
----
-
-## .center[Erweiterungen des Angriffs]
+.footnote[² IPS: Intrusion Prevention System]
 
 ---
 
