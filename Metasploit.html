@@ -377,18 +377,19 @@ layout: false
 ## .center[Toolbeschreibung]
 
 - Information Gathering
-    - Port Scanning
-    - Service Identification
-    - Password Sniffing
-    - SNMP sweeping
+    - ARP Sweep -> Zielhost IP Adressen finden
+    - Port Scanning -> Offene Ports?
+    - Service Identification -> Welche Dienste stehen hinter dem Port?
+    - Password Sniffing -> kann IMAP / FTP und HTTP GET Login abfangen
+    - SNMP sweeping -> Managed Netzwerkelemente finden
 
 
 - Vulnerability Scanning with Metasploit (auxiliary/scanner/)
-    - smb_login -> Filesystem Zugriff bei Windows
-    - VNC Scanner -> Dienstscanner
-    - WMAP Web Scanner -> Portscanner
-    - NeXpose -> Vulnerability Management / Analyse Tool
-    - Nessus -> Portscanner / Dictionary Attack
+    - smb_login        -> Filesystem Zugriff bei Windows
+    - VNC Scanner      -> Dienstscanner
+    - WMAP Web Scanner -> Portscanner für WebApps
+    - NeXpose          -> Vulnerability Management / Analyse Tool
+    - Nessus           -> Portscanner / Dictionary Attack
 ---
 ## .center[Toolbeschreibung]
   - MSFvenom: Custom Payload Erstellung
