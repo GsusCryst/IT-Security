@@ -28,16 +28,15 @@ class: center, middle
 
 # .center[Agenda]
 
-  1.0 Einführung ins Metasploit Framework // kris
-    + Anfänge/Geschichte
-    + Was ist Metasploit(jetzt)? Rapid7
-    + Bibliotheken, was beinhalten diese.
+  1.0 Einführung ins Metasploit Framework
+    + Was ist das Metasploit Framework?
+    + Entwicklung von Metasploit
 
-  2.0 Theoretische Hintergrund von Metasploit // kris
-    + Architektur
-    + Was leistet Metasploit?
-    + Wie funktioniert die einzelnen Tools.
-    + PC [-> Internet ->] PC2 -> Penetrationtesting Theorie
+  2.0 Theoretische Hintergrund von Metasploit
+    + Was ist ein Vulnerability Scanner?
+    + Was ist Penetration-Testing überhaupt?
+    + Metasploit Architecture
+    
 
   3.0 Toolbeschreibung // sasha
     + Was leistet Metasploit?
@@ -48,15 +47,15 @@ class: center, middle
 
 # .center[Agenda]
 
-  4.0 Ausnutzbare Schwachstellen mit Metasploit // sasha
+  4.0 Ausnutzbare Schwachstellen mit Metasploit
     + Welche Angriffsvektoren ermöglicht Metasploit?
     + Bekannte Schwachstellen?
 
-  5.0 Angriffsbeschreibung // sasha
+  5.0 Angriffsbeschreibung
     + Wie verläuft ein Angriff, welche Tools werden üblicherweise Verwendet?
     + Beispiele
 
-  6.0 Erweiterungen des Angriffs // beide
+  6.0 Erweiterungen des Angriffs
     + Welche Möglichkeiten gibt es den Angriff effektiver zu gestalten?
     + Selbstschutz vor Identifikation? Proxy?
     + Payload abliefern?
@@ -64,11 +63,9 @@ class: center, middle
 
 # .center[Agenda]
 
-  7.0 Gegenmaßnahmen und ihre Wirksamkeit // kris
-    + Antivirus? Hardware/Firewall?
-    + Internet trennen!
+  7.0 Gegenmaßnahmen und ihre Wirksamkeit
 
-  8.0 Vorführung // beide
+  8.0 Vorführung
     + VM Machine Hack / Metasploitable3
 
   9.0 Links
@@ -90,6 +87,10 @@ class: center, middle
     - beim Penetration-Testing und bei der Entwicklung von IDS-Signaturen¹ eingesetzt wird
     - die nötige Infrastruktur für triviale, routinemäßige und komplexe Tasks liefert
     - darunter Fallen Exploits, Payloads, Encoders etc.
+        - Meterpreter ist der wichtigste dynamische Payload:
+            - kurz für **Meta-Interpreter**
+            - funktioniert mit dll-Injection
+            - liegt komplett im Speicher des Remote-Hosts
     - diese können mit Angriffsvektoren erweitert werden
 
 .footnote[¹ IDS = Intrusion Detection System]
@@ -221,8 +222,8 @@ layout: true
 <img src="pictures/Modules.png" height="100%" width="100%">
 - plugins:
     - Plugins für Metasploit
-
-<img src="pictures/Plugins.png" height="100%" width="100%">
+<img src="pictures/Plugins.png" height="78%" width="78%">
+<img src="pictures/Plugins1.png" height="78%" width="78%">
 
 ---
 
@@ -265,9 +266,11 @@ layout: true
 ---
 
 - die Interaktionen mit Metasploit werden hauptsächlich über Module geführt
+
 - diese sind in zwei Directories gespeichert:
     - primäre Module in **/usr/share/metasploit-framework/modules/**
     - benutzerdefinierte Module in **~/.msf4/modules/**
+
 - alle Metasploitmodule sind in unterschiedlichen Directories organisiert
 
 ---
@@ -279,10 +282,22 @@ layout: true
 - Auxiliary:
     - Module für Port Scanner, Fuzzers, Sniffers, etc.
 <img src="pictures/Auxiliary.png" height="100%" width="100%">
+    - z.B. Nmap:
+        - scannen und auswerten von Hosts in einem Netzwerk
+        - führt ARP Sweep durch
+
+---
 
 - Payloads:
     - Code der per Remote ausgeführt wird
 <img src="pictures/Payloads.png" height="100%" width="100%">
+    - Singels:
+        - stand-alone Payload
+    - Stagers:
+        - baut Netzwerk-Verbindung auf
+    - Stages:
+        - Payload-komponente
+        - liefert erweiterte Features(z.B. Meterpreter)
 
 ---
 
@@ -293,26 +308,6 @@ layout: true
 - Nops:
     - hält Größe von Payloads konsistent
 <img src="pictures/Nops.png" height="100%" width="100%">
-
----
-
-layout: false
-
-## .center[Theoretische Hintergrund von Metasploit]
-
-### Metasploit Architecture - Metasploit Object Model
-
-- im Metasploit Framework sind alle Module Ruby-Klassen:
-    - Module erben von der typ-spezifischen Klasse
-    - die typ-spezifischen Klassen erben von der Msf::Module Klasse
-    - es gibt eine gemeinsame API zwischen den Modulen
-    - jede Klasse hat genau einen Parent
-    - jede Klasse kann mehrere Module haben
-    - Module können neue Methoden hinzufügen
-    - Module können Methoden überladen
-- Payloads sind etwas anders:
-    - werden während der Laufzeit erstellt von verschiedenen Komponenten
-    - Klebt Stagers mit Stages zusammen
 
 ---
 
@@ -327,6 +322,7 @@ layout: true
 - Metasploit Module enthalten Mixins zum hinzufügen von Features
 
 - Metasploit Mixins:
+
     - können neue Features mitbringen und erlaubt Module mit verschiedenen Spezifizierungen
         - Protokol-spezifisch(HTTP, SMB)
         - Verhaltens-spezifisch(Brute Force)
@@ -335,6 +331,7 @@ layout: true
 ---
 
 - Metasploit Plugins:
+
     - arbeiten direkt mit der API
     - manipulieren das Framework als Ganzes
     - haken sich in das Event Subsystem ein
@@ -353,16 +350,19 @@ layout: true
 ---
 
 - MSFconsole:
+
     - zentrailisiertes, konsolen-basiertes Interface
     - einziger Weg um Zugriff auf nahezu alle Optionen von MSF zu bekommen
     - enthält die meisten Features
     - stabilste MSF Interface
-    - Readline Support, Tabben, Command-Vervollständigung
+    - Readline Support, Command-Vervollständigung
     - ausführen von externen Commands ist möglich
 
 ---
 
 - Armitage:
+
+    - graphisches Interface
     - skriptfähiges Team-Collaborations Tool
     - visualisiert Ziele, empfiehlt Exploits
     - bringt erweiterte Post-Exploitation-Funktionen mit
