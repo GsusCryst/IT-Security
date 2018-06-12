@@ -46,42 +46,10 @@ background-image: url(pictures/Metasploit-Framework.png)
     + PC [-> Internet ->] PC2 -> Penetrationtesting Theorie
 
   3.0 Toolbeschreibung // sasha
-    + QuickSetup?
-      Wird bei Kali Linux mitgeliefert.
     + Wie wendet man Metasploit an?
-      Pro Version kommt mit Interface
-      Commandozeilen Befehle
-        Information Gathering
-          Port Scanning
-          Hunting for MSSQL
-          Service Identification
-          Password Sniffing
-          SNMP sweeping
-        Vulnerability Scanning with Metasploit (auxiliary/scanner/)
-          smb_login
-          VNC Scanner
-          WMAP Web Scanner
-          NeXpose
-          Nessus
-        Exploit Development Payloads
-          MSFvenom
-            MSFpayload
-            MSFencode
-        Using Exploits
-          use <exploit>
-            show targets
-            show payloads
-            show options
-            show evasion
-          set payload, Hosts, Ports
-          exploit -> to start service
-
-
-
     + Wozu werden die Tools verwendet.
+    + Beispiele
 
-      + Beispiele!
-    + Penetrationtesting Beispiel Theorie
 ---
 
 # <font color="#20C20E">.center[Agenda]
@@ -93,8 +61,7 @@ background-image: url(pictures/Metasploit-Framework.png)
 
   5.0 Angriffsbeschreibung // sasha
     + Wie verläuft ein Angriff, welche Tools werden üblicherweise Verwendet?
-    + Mehrere Beispiele?
-    + Bekannte Hacks mit Metasploit?
+    + Beispiele
 
   6.0 Erweiterungen des Angriffs // beide
     + Welche Möglichkeiten gibt es den Angriff effektiver zu gestalten?
@@ -207,7 +174,7 @@ background-image: url(pictures/Metasploit-Framework.png)
 
 ---
 
-background-image: 
+background-image:
 
 ## <font color="#20C20E">.center[Theoretische Hintergrund von Metasploit]
 
@@ -380,15 +347,101 @@ background-image:
 
 ---
 
-## <font color="#20C20E">.center[Ausgenutzte/Ausnutzbare Schwachstellen mit metasploit]</font>
+## <font color="#20C20E">.center[Toolbeschreibung]
+
+- Information Gathering
+          Port Scanning
+          Service Identification
+          Password Sniffing
+          SNMP sweeping
+- Vulnerability Scanning with Metasploit (auxiliary/scanner/)
+          smb_login -> Filesystem Zugriff bei Windows
+          VNC Scanner -> Dienstscanner
+          WMAP Web Scanner -> Portscanner
+          NeXpose -> Vulnerability Management / Analyse Tool
+          Nessus -> Portscanner / Dictionary Attack
+---
+## <font color="#20C20E">.center[Toolbeschreibung]
+- Exploit Development Payloads
+          MSFvenom: Custom Payload Erstellung
+- Using Exploits
+          use <exploit>
+            show targets
+            show payloads
+            show options
+            show evasion
+          set payload, Hosts, Ports
+          exploit -> to start service
 
 ---
+## <font color="#20C20E">.center[Toolbeschreibung - Armitage]
 
-## <font color="#20C20E">.center[Angriffsbeschreibung]</font>
+  <img src="pictures/armitage_overview_portscan.png" height="85%" width="85%">
+---
+## <font color="#20C20E">.center[Toolbeschreibung - Armitage]
 
+  <img src="pictures/armitage_psexec_login.png" height="85%" width="85%">
+---
+## <font color="#20C20E">.center[Toolbeschreibung - Armitage]
+
+  <img src="pictures/armitage_psexec_exploit.png" height="85%" width="85%">
+---
+## <font color="#20C20E">.center[Toolbeschreibung - Armitage]
+  <img src="pictures/armitage_psexec_hashdump.png" height="85%" width="85%">
+---
+## <font color="#20C20E">.center[Ausnutzbare Schwachstellen mit metasploit]
++ Web-Server
+    GlassFish
+    Apache Tomcat
+    Wordpress
+    PHPMyAdmin
+    Ruby on Rails
++ Software
+    Jenkins
+    ManageEngine
+    Elasticsearch
+    MySQL
+    JMX
++ Betriebssystem Dienste & Anwendungen
+    Internet Information Service
+    PsExec
+    SSH
+    WinRM
+    WebDAV
+    SNMP
+    RDP
 ---
 
-## <font color="#20C20E">.center[Toolbeschreibung]</font>
+## <font color="#20C20E">.center[Angriffsbeschreibung]
+
+  Angriff über msfconsole -> Demo
+    1. ARP Sweep zum finden von Zielen
+    2. Port Scanning zum finden Offener Ports
+    3. Exploit laden
+    4. Exploit konfigurieren
+    5. Exploit ausführen
+    6. Angriff mit Meterpreter fortführen
+    7. Z.B. Upload Payload im Autostart Verzeichnis
+
+---
+## <font color="#20C20E">.center[Angriffsbeschreibung]
+  Angriff mit Armitage -> Demo
+    1. NMAP Scan mit IP Range um Ziele zu finden
+    2. NMAP Quick-Portscan mit Ziel IP
+        Zielhost OS ermitteln
+        Offene Ports inklusive Dienst ermitteln
+    3. Find Attacks zum ermitteln möglicher Exploits
+    4. Optional: Check Exploits
+        Wenige Module unterstützen diese Funktion
+    5. Brute Force / Social Engineer / Fish Login Details
+      Benötigt nicht bei jedem Exploit Adminrechte
+    6. Login, exploit und Loot sammeln
+        Wenn möglich eigene Berechtigungen erhöhen
+        Mit Skripten nach wertvollen Informationen suchen, z.B. BTC-Wallets
+        Keylogger installieren
+        Persistenten Trojaner installieren
+    7. Angriff erweitern
+        Mit dem Loot versuchen weitere Schwachstellen zu identifizeren
 
 ---
 

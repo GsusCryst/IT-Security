@@ -1,0 +1,81 @@
+  3.0 Toolbeschreibung // sasha
+      Commandozeilen Befehle
+        Information Gathering
+          Port Scanning
+          Service Identification
+          Password Sniffing
+          SNMP sweeping
+        Vulnerability Scanning with Metasploit (auxiliary/scanner/)
+          smb_login -> Filesystem Zugriff bei Windows
+          VNC Scanner -> Dienstscanner
+          WMAP Web Scanner -> Portscanner
+          NeXpose -> Vulnerability Management / Analyse Tool
+          Nessus -> Portscanner / Dictionary Attack
+        Exploit Development Payloads
+          MSFvenom
+		Custom Payload Erstellung		
+        Using Exploits
+          use <exploit>
+            show targets
+            show payloads
+            show options
+            show evasion
+          set payload, Hosts, Ports
+          exploit -> to start service
+
+	Armitage
+	
+
+  4.0 Ausnutzbare Schwachstellen mit Metasploit // sasha
+	Bekannte Schwachstellen
+	Web-Server
+		GlassFish
+		Apache Tomcat
+		Wordpress
+		PHPMyAdmin
+		Ruby on Rails
+	Software
+		Jenkins
+		ManageEngine
+		Elasticsearch
+		MySQL
+		JMX	
+	Betriebssystem Dienste & Anwendungen
+		Internet Information Service
+		PsExec
+		SSH
+		WinRM
+		WebDAV
+		SNMP
+		RDP
+		
+	
+
+  5.0 Angriffsbeschreibung // sasha
+	Angriff über msfconsole -> Demo
+	1. ARP Sweep zum finden von Zielen
+	2. Port Scanning zum finden Offener Ports
+	3. Exploit laden
+	4. Exploit konfigurieren
+	5. Exploit ausführen
+	6. Angriff mit Meterpreter fortführen
+	7. Z.B. Upload Payload im Autostart Verzeichnis 
+		
+	
+	Angriff mit Armitage -> Demo
+	1. NMAP Scan mit IP Range um Ziele zu finden
+	2. NMAP Quick-Portscan mit Ziel IP
+		Zielhost OS ermitteln
+		Offene Ports inklusive Dienst ermitteln
+	3. Find Attacks zum ermitteln möglicher Exploits
+	4. Optional: Check Exploits
+		Wenige Module unterstützen diese Funktion
+	5. Brute Force / Social Engineer / Fish Login Details
+		Benötigt nicht bei jedem Exploit Adminrechte
+	6. Login, exploit und Loot sammeln
+		Wenn möglich eigene Berechtigungen erhöhen
+		Mit Skripten nach wertvollen Informationen suchen, z.B. BTC-Wallets
+		Keylogger installieren
+		Persistenten Trojaner installieren		
+	7. Angriff erweitern
+		Mit dem Loot versuchen weitere Schwachstellen zu identifizeren
