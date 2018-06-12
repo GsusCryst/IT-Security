@@ -76,33 +76,45 @@ class: center, middle
 
 ---
 
+layout: true
+
 ## .center[Einführung ins Metasploit Framework]
 
 ### Was ist ein Vulnerability Scanner?
 
-- automatisiertes Tool um Sicherheitslücken in einem System oder einer Applikation zu identifizieren
-- nehmen einen Fingerabdruck des Ziel-OSs(Version, Type) und der laufenden Anwendungen
-- nun können bestimmte Checks durchgeführt werden, mit denen man Schwachstellen im OS entdecken kann
-- diese Checks werden ausgeführt für:
+---
+
+- automatisiertes Tool um Sicherheitslücken zu identifizieren
+
+- nimmt Fingerabdruck des Ziel-OSs(Version, Type) und der laufenden Anwendungen(SMB, Tomcat, Glassfish, etc.)
+
+- kann bestimmte Checks durchführen, um Schwachstellen zu entdecken, z.B. für:
     - offene Ports
     - Shares
     - veraltete oder unsichere Dienste
     - Passwort- und Benutzerrichtlinien
+
+
 - False-Positives lassen sich dabei nicht ausschließen
-- viele Unternehmen benutzen die Vulnerability Scanner um Out-Of-Date Systeme oder potenzielle Exploits zu entdecken
-- die Scanner spielen eine große Rolle im Penetration Testing, vorallem beim Integritätstest
-- einer dieser Vulnerability Scanner ist das **Metasploit Framework**_(MSF)_
-
-
 
 ---
+
+- werden benutzt um Out-Of-Date Systeme oder potenzielle Exploits zu entdecken
+
+- spielen große Rolle im Penetration Testing(z.B. Integritätstest)
+
+- einer dieser Vulnerability Scanner ist das **Metasploit Framework**_(MSF)_
+
+---
+
+layout: false
 
 ## .center[Einführung ins Metasploit Framework]
 
 ### Was ist das Metasploit Framework(MSF)?
 
 - Metasploit ist ein Open-Source Projekt
-- das Teilprojekt Metasploit Framework(MSF) ist das bekannteste, es:
+- Metasploit Framework(MSF) ist ein Teilprojekt, es:
     - bietet Informationen über Sicherheitslücken
     - wird beim Penetration-Testing und bei der Entwicklung von IDS-Signaturen¹ eingesetzt
     - liefert die nötige Infrastruktur für triviale, routinemäßige und komplexe Tasks
@@ -113,76 +125,88 @@ class: center, middle
 
 .footnote[¹ IDS = Intrusion Detection System]
 
-
-
 ---
+
+layout:true
 
 ## .center[Einführung ins Metasploit Framework]
 
 ### Entwicklung von Metasploit
+
+---
 
 - erfunden und entwickelt von H.D. Moore
-- die 1. Edition vom Perl-basierten Metasploit wurde im Oktober 2003 mit 11 Exploits veröffentlicht
-- mit Hilfe von Spoonm konnte Moore im April 2004 Metasploit 2.0 veröffentlichen, diese Verson enthielt bereits 19 Exploits und 27 Payloads
-- 2006 wurde Metasploit 3.0 veröffentlicht mit 177 Exploits und 104 Payloads
-- 2007 wurde das Framework komplett überarbeitet, mit Ruby als Programmiersprache
-- Rapid7, eine Sicherheitsfirma, die einheitliche Vulnerability Management Solutions zur Verfügung stellt, übernahm das Projekt 2009
-- 2010 kamen Metasploit Express und Metasploit Pro zum Repertoire
 
+.center[Jahr] | .center[Version] | .center[Umfang] | .center[Beschreibung]
+---- | ---- | ---- | ----
+.center[2003] | .center[1.0] | .center[11 Exploits] | Perl-basiert
+.center[2004] | .center[2.0] | .center[19 Exploits, 27Payloads] | Zusammenarbeit mit Spoonm
+.center[2006] | .center[3.0] | .center[177 Exploits, 104Payloads] | -
+.center[2007] | .center[-] | .center[-] | Überarbeitung und Neuaufsetzung mit Ruby
 
 ---
 
-## .center[Einführung ins Metasploit Framework]
+.center[Jahr] | .center[Version] | .center[Umfang] | .center[Beschreibung]
+---- | ---- | ---- | ----
+.center[2009] | .center[-] | .center[-] | Übernahme des Projekts durch Rapid7
+.center[2010] | .center[-] | .center[-] | Metasploit Express/Pro werden dem Repertoire hinzugefügt
+.center[2011] | .center[4.0] | .center[1673 Exploits, 438 Payloads] | .center[-]
+.center[2018] | .center[4.16] | .center[1749 Exploits, 536 Payloads] | Aktueller Stand
 
-### Entwicklung von Metasploit
+---
 
 - Metasploit Express zielt auf Security-Teams, die Sicherheitslücken verifizieren, ab und bietet:
     - eine automatisierte Beweissammlung
     - die Benutzung von Brute Force
     - zusätzlich wurde Nmap integriert und eine benutzerfreundliche GUI angelegt
+
 - Metasploit Pro fokusiert sich auf Pen-Tester und IT-Security Teams und bietet:
     - Schnellstart Wizards/MetaModules
     - erstellen und managen von Social Engineering Aktionen
     - erweiterte Pro Console, Web Application Testing, dynamische Payloads, Nexpose, VPN pivoting
-- 2011 wurde Metasploit 4.0 veröffentlicht mit inzwischen mehr als 1600 Exploits und über 438 Payload
 
 ---
+
+layout: false
 
 ## .center[Theoretische Hintergrund von Metasploit]
 
 ### Was ist Penetration-Testing überhaupt?
 
-- zu erst: Penetration-Testing und Vulnerability-Scanning sind nicht das Selbe
-- im Gegensatz zum Vulnerability-Scanning werden die Schwachstellen ausgenutzt
-- damit wird bestimmt, ob unauthorisierter Zugang oder andere schadhafte Aktivitäten möglich sind
+- zu erst: Penetration-Testing ≠ Vulnerability-Scanning
+- Schwachstellen werden ausgenutzt
+- mögliche unauthorisierte Zugriffe oder andere schadhafte Aktivitäten bestimmt
+
 - Penetration Testing umfasst:
     - Network Penetration Testing
     - Application Security Testing
     - Sicherheitstests für Steuerungen und Prozesse in den Netzwerken und Anwendungen
-- wird von außerhalb und innerhalb des Netzwerkes durchgeführt
+
+- wird von außerhalb und innerhalb durchgeführt
 
 ---
 
-background-image:
+class: center, middle
 
 ## .center[Theoretische Hintergrund von Metasploit]
 
 ### Metasploit Architecture
 
-<img src="pictures/Metasploitarchitecture.png" height="85%" width="85%">
+<img src="pictures/Metasploitarchitecture.png" height="80%" width="80%">
 
 ---
+
+layout: true
 
 ## .center[Theoretische Hintergrund von Metasploit]
 
 ### Metasploit Architecture - Filesystem
 
-- ist intuitive angelegt und in directories organisiert
+---
+
+- intuitive angelegt, in Directories organisiert
 - findet sich in **/usr/share/metasploit-framework/** wieder
 
-- data:
-    - editierbare Dateien von Binärdaten für bestimmte Exploits, Wordlists, Images, etc.
-<img src="pictures/Data.png" height="100%" width="100%">
 - documentation:
     - Dokumentationen für das Framework
 <img src="pictures/Documentation.png" height="100%" width="100%">
@@ -192,16 +216,15 @@ background-image:
 
 ---
 
-## .center[Theoretische Hintergrund von Metasploit]
-
-### Metasploit Architecture - Filesystem
-
 - modules:
     - MSF Module für Exploits, Auxiliary, Post Module, Payloads, Encoders und Nop Generatoren
 <img src="pictures/Modules.png" height="100%" width="100%">
 - plugins:
     - Plugins für Metasploit
 <img src="pictures/Plugins.png" height="100%" width="100%">
+
+---
+
 - scripts:
     - Meterpreter und andere Scripts
 <img src="pictures/Scripts.png" height="100%" width="100%">
@@ -210,6 +233,8 @@ background-image:
 <img src="pictures/Tools.png" height="100%" width="100%">
 
 ---
+
+layout: false
 
 ## .center[Theoretische Hintergrund von Metasploit]
 
@@ -230,9 +255,13 @@ background-image:
 
 ---
 
+layout: true
+
 ## .center[Theoretische Hintergrund von Metasploit]
 
 ### Metasploit Architecture - Modules und Locations
+
+---
 
 - die Interaktionen mit Metasploit werden hauptsächlich über Module geführt
 - diese sind in zwei Directories gespeichert:
@@ -240,22 +269,22 @@ background-image:
     - benutzerdefinierte Module in **~/.msf4/modules/**
 - alle Metasploitmodule sind in unterschiedlichen Directories organisiert
 
+---
+
 - Exploits:
     - Module, die Payloads benutzen
 <img src="pictures/Exploits.png" height="100%" width="100%">
+
 - Auxiliary:
     - Module für Port Scanner, Fuzzers, Sniffers, etc.
 <img src="pictures/Auxiliary.png" height="100%" width="100%">
 
----
-
-## .center[Theoretische Hintergrund von Metasploit]
-
-### Metasploit Architecture - Modules und Locations
-
 - Payloads:
     - Code der per Remote ausgeführt wird
 <img src="pictures/Payloads.png" height="100%" width="100%">
+
+---
+
 - Encoders:
     - stellt sicher, dass Payloads ankommen
 <img src="pictures/Encoders.png" height="100%" width="100%">
@@ -264,6 +293,8 @@ background-image:
 <img src="pictures/Nops.png" height="100%" width="100%">
 
 ---
+
+layout: false
 
 ## .center[Theoretische Hintergrund von Metasploit]
 
@@ -314,9 +345,13 @@ background-image:
 
 ---
 
+layout: true
+
 ## .center[Theoretische Hintergrund von Metasploit]
 
 ### Metasploit Architecture - UI
+
+---
 
 - MSFconsole:
     - zentrailisiertes, konsolen-basiertes Interface
@@ -325,6 +360,8 @@ background-image:
     - stabilste MSF Interface
     - Readline Support, Tabben, Command-Vervollständigung
     - ausführen von externen Commands ist möglich
+
+---
 
 - Armitage:
     - skriptfähiges Team-Collaborations Tool
@@ -335,6 +372,8 @@ background-image:
     - erhöht die Effektivität von Red Teams
 
 ---
+
+layout: false
 
 ## .center[Toolbeschreibung]
 
@@ -478,14 +517,7 @@ System sollte aktualisierbar sein für Patches und Sicherheits-Upgrades | .cente
 |
 |
 |
-System mit realen Angriffsskripten evaluieren | .center[3]
-|
-|
-|
-|
-|
-|
-Angriffsskripte analysieren und Defensivskripte erstellen(besonders bei 0-Day-Exploits) | .center[4]
+Angriffsskripte evaluieren/analysieren und Defensivskripte erstellen(besonders bei 0-Day-Exploits) | .center[4]
 |
 |
 |
@@ -512,7 +544,7 @@ System vom Internet trennen ¯\\\_(ツ)\_/¯ | .center[42]
 |
 
 
-.footnote[¹ Wirksamkeit: 1(gering)-5(hoch)]
+.footnote[¹ Wirksamkeit: 1(sehr gering)-5(sehr hoch)]
 
 ---
 
