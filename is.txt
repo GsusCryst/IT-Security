@@ -1,13 +1,1 @@
-﻿Vortrag + Vorführung
-
--> Einführung in Themen
--> Theoretischer Hintergrund
--> ausgenutzte/ausnutzbare Schwachstellen
--> Angriffsbeschreibung oder Toolbeschreibung
--> Vorführung
--> Gegenmaßnahmen und ihre Wirksamkeit
--> denkbare Erweiterungen des Angriffs
----
-Vortrag als PDF an Thiel bis 16.07. (Bewertet)
-13.06 Metasploit
-
+vagrant 2.0.3
